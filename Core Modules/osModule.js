@@ -11,6 +11,9 @@ const osInformation = {
     // return computers operating system
     "Type of OS: " : os.type(),
 
+    // Platform
+    "Platform of OS: " : os.platform(),
+
     // return CPU architecture
     "OS Architecture: " : os.arch(),
 

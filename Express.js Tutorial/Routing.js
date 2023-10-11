@@ -43,6 +43,26 @@ app.listen(port, () => {
     console.log(`App listening on port ${port}!`);
 });
 
+// --------------------------------------- Chainable Route Handler -----------------------------------------
+// you can create chainable route handler for a route path by using app.route() function
+
+app.route('/chain')
+    .get((req, res) => {
+        res.send("This is GET method's callback function")
+    })
+    .post((req, res) => {
+        res.send("This is POST method's callback function")
+    })
+    .put((req, res) => {
+        res.send("This is PUT method's callback function")
+    })
+
+// -------------------------------------------- app.all() --------------------------------------------------
+// This is a special routing method which will be called in response to any HTTP method
+app.all('/accept_all', (req, res) => {
+    res.send("Listen to all request method")
+})
+
 // ----------------------------- Express Router Expample -----------------------------------------
 // middleware that is specific to this router
 router.use((req, res, next) => {

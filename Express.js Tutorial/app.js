@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
     res.send("Hello this is express!")
 });
 
-
+// this creates our server on given port, here at port 3000
 app.listen(port, () => {
     console.log(`App listening on port ${port}!`);
-});
+}); 

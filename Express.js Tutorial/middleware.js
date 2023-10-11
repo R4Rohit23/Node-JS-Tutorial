@@ -2,11 +2,10 @@
 
 const express = require('express');
 const app = express()
-
 const port = 3000;
 
 const myMiddleware = (req, res, next) => {
-    console.log('I am middleware')
+    req.requistTime = Date.now()
     next()
 }
 
@@ -14,7 +13,9 @@ const myMiddleware = (req, res, next) => {
 app.use(myMiddleware)
 
 app.get('/', (req, res) => {
-    res.send('Hello')
+    let responseText = "Hello Bhai<br>"
+    responseText += `<small>Requested at: ${req.requistTime}</small>`
+    res.send(responseText)
 })
 
 // Errors are handled by one or more special middleware functions that have four arguments, instead of the usual three: (err, req, res, next)
